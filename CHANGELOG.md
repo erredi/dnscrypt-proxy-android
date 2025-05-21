@@ -11,6 +11,31 @@
 - `dnscrypt.ca-1` resolver (ceased).
 - `dnscrypt.ca-2` resolver (ceased).
 
+## 2.1.10
+### Upstream
+
+This is a massive release with significant improvements.
+
+ - A live web-based monitoring UI has been added, allowing you to monitor DNS query activity and performance metrics through an interactive dashboard.
+ - Hot-reloading of configuration files has been implemented, allowing you to modify filtering rules and other configurations without restarting the proxy. Simply edit a configuration file (like blocked-names.txt) and changes are applied instantaneously.
+ - HTTP/3 probing is now supported via the http3_probe option, which will try HTTP/3 first for DoH servers, even if they don't advertise support via Alt-Svc.
+ - Several race conditions have been fixed.
+ - Dependencies have been updated.
+ - DHCP DNS detector instances have been reduced to improve performance.
+ - Tor isolation for dnscrypt-proxy has been documented to enhance privacy.
+ - The default example configuration file has been improved for clarity and usability.
+ - The cache lock contention has been reduced to improve performance under high load.
+ - generate-domains-blocklist: added parallel downloading of block lists for significantly improved performance.
+
+## 2.1.8
+### Upstream
+ - Dependencies have been updated, notably the QUIC implementation, which could be vulnerable to denial-of-service attacks.
+ - In forwarding rules, the target can now optionally include a non-standard DNS port number. The port number is also now optional when using IPv6.
+ - An annoying log message related to permissions on Windows has been suppressed.
+ - Resolver IP addresses can now be refreshed more frequently. Additionally, jitter has been introduced to prevent all resolvers from being refreshed simultaneously. Further changes have been implemented to mitigate issues arising from multiple concurrent attempts to resolve a resolver's IP address.
+ - An empty value for "tls_cipher_suite" is now equivalent to leaving the property undefined. Previously, it disabled all TLS cipher suites, which had little practical justification.
+ - In forwarding rules, an optional *. prefix is now accepted.
+
 ## 2.1.5
 ### Upstream
  - dnscrypt-proxy can be compiled with Go 1.21.0+

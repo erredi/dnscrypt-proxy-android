@@ -11,6 +11,11 @@
 - `dnscrypt.ca-1` resolver (ceased).
 - `dnscrypt.ca-2` resolver (ceased).
 
+## 2.1.11
+### Upstream
+
+Updated a dependency to fix a bug causing the cache to crash.
+
 ## 2.1.10
 ### Upstream
 

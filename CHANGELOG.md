@@ -11,6 +11,17 @@
 - `dnscrypt.ca-1` resolver (ceased).
 - `dnscrypt.ca-2` resolver (ceased).
 
+## 2.1.12
+### Upstream
+
+ - A new Weighted Power of Two (WP2) load balancing strategy has been implemented as the default, providing improved distribution across resolvers.
+ - An optional Prometheus metrics endpoint has been added for monitoring and observability.
+ - Memory usage for the cache has been reduced.
+ - The monitoring dashboard has received significant improvements including better security, performance optimizations, WebSocket rate limiting, and HTTP caching headers.
+ - The monitoring UI has been refined with stable sorting to prevent flickering, query type limitations, and improved scrolling behavior.
+ - Additional records in queries are now properly removed before forwarding.
+ - The simple view UI has been removed as it provided limited utility.
+
 ## 2.1.11
 ### Upstream
 

@@ -11,6 +11,20 @@
 - `dnscrypt.ca-1` resolver (ceased).
 - `dnscrypt.ca-2` resolver (ceased).
 
+## 2.1.13
+### Upstream
+
+ - Fixed race conditions in WebSocket handling for the monitoring dashboard, improving stability and preventing potential crashes.
+ - Manual configuration reload via SIGHUP is now supported regardless of the hot-reload setting, providing more flexibility for system administrators.
+ - Fixed a regression in IP prefix matching for allow/block lists that could cause incorrect filtering behavior.
+ - The monitoring dashboard now properly displays blocked queries counter and tracks blocked queries in the UI.
+ - Improved error handling in the cache plugin initialization.
+ - Enhanced the forward plugin to return the last valid response when encountering only errors, improving resilience.
+ - Fixed various UI issues including scrolling behavior, WebSocket reconnection handling, and response time calculations.
+ - Updated the example configuration with current Quad9 source URLs.
+ - The generate-domains-blocklist script now handles poor network conditions more gracefully.
+ - Improved handling of DNS64 trampoline queries to prevent potential issues.
+
 ## 2.1.12
 ### Upstream
 

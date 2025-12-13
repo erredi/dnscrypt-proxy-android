@@ -11,14 +11,24 @@
 - `dnscrypt.ca-1` resolver (ceased).
 - `dnscrypt.ca-2` resolver (ceased).
 
-## 2.1.14
+## 2.1.15
 ### Upstream
 
+ -  The proxy now dynamically reduces timeouts as the connection limit is approached, improving performance and preventing connection exhaustion under heavy load.
+ -  Fixed crashes in the configuration file watcher when fsnotify creation fails.
+ -  DHCP resolver errors ($DHCP forwarding) are now properly logged and visible to system administrators.
+ -  Fixed double-bracketing of IPv6 addresses in DoH stamps that could prevent proper connection to IPv6 DoH servers.
+ -  Cache statistics are now more accurate by only counting queries that actually participate in caching.
+ -  The monitoring UI has been enhanced with server health indicators and improved display of resolver performance metrics.
+ -  Proxy hostnames (when using SOCKS/HTTP proxies) are now pre-resolved using bootstrap resolvers if they are domain names.
+ -  Multiple IP addresses per hostname are now cached instead of randomly selecting one, improving connection reliability for multi-homed servers.
+
+## 2.1.14
+### Upstream
 
  - Added support for client IP address encryption in logs using IPCrypt. Three algorithms are supported: deterministic, non-deterministic with 8-byte tweak, and extended non-deterministic with 16-byte tweak.
  - Enhanced pattern rule documentation with better examples.
  - Fixed an issue where nil client addresses could cause crashes.
-
 
 ## 2.1.13
 ### Upstream

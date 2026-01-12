@@ -27,8 +27,7 @@
 ##
 ## Remove the leading # first to enable this; lines starting with # are ignored.
 
-server_names = ['ams-dnscrypt-nl', 'd0wn-tz-ns1', 'dct-nl', 'dct-ru', 'dnscrypt.be', 'dnscrypt.pl', 'dnscrypt.uk-ipv4', 'dnswarden-uncensor-dc-swiss', 'meganerd', 'openinternet', 'plan9dns-fl', 'plan9dns-mx', 'plan9dns-nj', 'pryv8boi', 'sby-limotelu', 'scaleway-ams', 'scaleway-fr', 'serbica', 'techsaviours.org-dnscrypt', 'v.dnscrypt.uk-ipv4']
-
+server_names = ['cs-de', 'cs-milan', 'cs-poland', 'digitalprivacy.diy-dnscrypt-ipv4', 'dnscry.pt-brussels-ipv4', 'dnscry.pt-frankfurt-ipv4', 'dnscry.pt-geneva-ipv4', 'dnscry.pt-munich-ipv4', 'scaleway-ams', 'serbica', 'sfw.scaleway-fr', 'v.dnscrypt.uk-ipv4']
 
 ## List of local addresses and ports to listen to. Can be IPv4 and/or IPv6.
 ## Example with both IPv4 and IPv6:
@@ -100,7 +99,7 @@ disabled_server_names = []
 ## (dnscrypt-proxy will always encrypt everything even using UDP), and can
 ## only increase latency.
 
-force_tcp = false
+force_tcp = true
 
 
 ## Enable support for HTTP/3 (HTTP over QUIC)
@@ -219,7 +218,7 @@ blocked_query_response = 'refused'
 
 ## Log level (0-6, default: 2 - 0 is very verbose, 6 only contains fatal errors)
 
-# log_level = 2
+log_level = 2
 
 
 ## Log file for the application, as an alternative to sending logs to
@@ -228,7 +227,7 @@ blocked_query_response = 'refused'
 ## This file is different from other log files, and will not be
 ## automatically rotated by the application.
 
-# log_file = 'dnscrypt-proxy.log'
+log_file = 'dnscrypt-proxy.log'
 
 
 ## When using a log file, only keep logs from the most recent launch.
@@ -244,7 +243,7 @@ blocked_query_response = 'refused'
 ## Automatic log files rotation
 
 # Maximum log files size in MB - Set to 0 for unlimited.
-log_files_max_size = 10
+log_files_max_size = 1
 
 # How long to keep backup files, in days
 log_files_max_age = 7
@@ -911,25 +910,18 @@ fragments_blocked = [
 ## in different countries, operated by different entities, on distinct ISPs...)
 
  routes = [
-    { server_name='ams-dnscrypt-nl', via=['anon-meganerd', 'anon-scaleway-ams'] },
-    { server_name='d0wn-tz-ns1', via=['anon-arapurayil-in-ipv4', 'anon-cs-rome'] },
-    { server_name='dct-nl', via=['anon-meganerd', 'anon-scaleway-ams'] },
-    { server_name='dct-ru', via=['anon-cs-czech', 'anon-techsaviours.org'] },
-    { server_name='dnscrypt.be', via=['anon-cs-belgium', 'anon-serbica'] },
-    { server_name='dnscrypt.pl', via=['anon-cs-poland', 'anon-techsaviours.org'] },
-    { server_name='dnscrypt.uk-ipv4', via=['anon-cs-london', 'anon-scaleway'] },
-    { server_name='dnswarden-uncensor-dc-swiss', via=['anon-cs-fr', 'anon-kama'] },
-    { server_name='meganerd', via=['anon-scaleway-ams', 'anon-serbica'] },
-    { server_name='openinternet', via=['anon-cs-sea', 'anon-inconnu'] },
-    { server_name='plan9dns-fl', via=['anon-cs-tx', 'anon-inconnu'] },
-    { server_name='plan9dns-mx', via=['anon-cs-tx', 'anon-inconnu'] },
-    { server_name='plan9dns-nj', via=['anon-cs-nyc1', 'anon-inconnu'] },
-    { server_name='pryv8boi', via=['anon-cs-dus1', 'anon-techsaviours.org'] },
-    { server_name='sby-limotelu', via=['anon-cs-sydney', 'anon-tiarap'] },
-    { server_name='scaleway-ams', via=['anon-meganerd', 'anon-serbica'] },
-    { server_name='scaleway-fr', via=['anon-cs-fr', 'anon-dnscrypt.uk-ipv4'] },
-    { server_name='serbica', via=['anon-cs-nl', 'anon-scaleway-ams'] },
-    { server_name='techsaviours.org-dnscrypt', via=['anon-cs-berlin', 'anon-dnswarden-swiss'] },
+    { server_name='cs-de', via=['dnscry.pt-anon-frankfurt-ipv4', 'anon-cs-ch'] },
+    { server_name='cs-milan', via=['dnscry.pt-anon-milan-ipv4', 'anon-cs-ch'] },
+    { server_name='cs-poland', via=['dnscry.pt-anon-warsaw02-ipv4', 'anon-cs-czech'] },
+    { server_name='digitalprivacy.diy-dnscrypt-ipv4', via=['dnscry.pt-anon-luxembourg-ipv4', 'anon-cs-fr'] },
+    { server_name='dnscry.pt-brussels-ipv4', via=['dnscry.pt-anon-brussels-ipv4', 'anon-cs-fr'] },
+    { server_name='dnscry.pt-frankfurt-ipv4', via=['dnscry.pt-anon-frankfurt-ipv4', 'anon-cs-de'] },
+    { server_name='dnscry.pt-geneva-ipv4', via=['dnscry.pt-anon-geneva-ipv4', 'anon-cs-ch'] },
+    { server_name='dnscry.pt-munich-ipv4', via=['dnscry.pt-anon-munich-ipv4', 'anon-cs-de'] },
+    { server_name='scaleway-ams', via=['dnscry.pt-anon-amsterdam02-ipv4', 'anon-cs-nl'] },
+    { server_name='serbica', via=['dnscry.pt-anon-budapest-ipv4', 'anon-cs-serbia'] },
+    { server_name='sfw.scaleway-fr', via=['dnscry.pt-anon-paris-ipv4', 'anon-cs-fr'] },
+    { server_name='v.dnscrypt.uk-ipv4', via=['dnscry.pt-anon-manchester-ipv4', 'anon-cs-fr'] }
     { server_name='v.dnscrypt.uk-ipv4', via=['anon-cs-london', 'anon-scaleway'] }
 #    { server_name='example-server-1', via=['anon-example-1', 'anon-example-2'] },
 #    { server_name='example-server-2', via=['sdns://gRIxMzcuNzQuMjIzLjIzNDo0NDM'] }

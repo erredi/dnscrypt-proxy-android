@@ -27,7 +27,7 @@
 ##
 ## Remove the leading # first to enable this; lines starting with # are ignored.
 
-server_names = ['cs-de', 'cs-milan', 'cs-poland', 'digitalprivacy.diy-dnscrypt-ipv4', 'dnscry.pt-brussels-ipv4', 'dnscry.pt-frankfurt-ipv4', 'dnscry.pt-geneva-ipv4', 'dnscry.pt-munich-ipv4', 'scaleway-ams', 'serbica', 'sfw.scaleway-fr', 'v.dnscrypt.uk-ipv4']
+server_names = ['cs-de', 'cs-milan', 'cs-poland', 'digitalprivacy.diy-dnscrypt-ipv4', 'dnscry.pt-brussels-ipv4', 'dnscry.pt-frankfurt-ipv4', 'dnscry.pt-geneva-ipv4', 'dnscry.pt-munich-ipv4', 'scaleway-ams', 'serbica', 'scaleway-fr', 'v.dnscrypt.uk-ipv4']
 
 ## List of local addresses and ports to listen to. Can be IPv4 and/or IPv6.
 ## Example with both IPv4 and IPv6:
@@ -920,7 +920,7 @@ fragments_blocked = [
     { server_name='dnscry.pt-munich-ipv4', via=['dnscry.pt-anon-munich-ipv4', 'anon-cs-de'] },
     { server_name='scaleway-ams', via=['dnscry.pt-anon-amsterdam02-ipv4', 'anon-cs-nl'] },
     { server_name='serbica', via=['dnscry.pt-anon-budapest-ipv4', 'anon-cs-serbia'] },
-    { server_name='sfw.scaleway-fr', via=['dnscry.pt-anon-paris-ipv4', 'anon-cs-fr'] },
+    { server_name='scaleway-fr', via=['dnscry.pt-anon-paris-ipv4', 'anon-cs-fr'] },
     { server_name='v.dnscrypt.uk-ipv4', via=['dnscry.pt-anon-manchester-ipv4', 'anon-cs-fr'] }
     { server_name='v.dnscrypt.uk-ipv4', via=['anon-cs-london', 'anon-scaleway'] }
 #    { server_name='example-server-1', via=['anon-example-1', 'anon-example-2'] },

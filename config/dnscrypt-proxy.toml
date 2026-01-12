@@ -922,7 +922,6 @@ fragments_blocked = [
     { server_name='serbica', via=['dnscry.pt-anon-budapest-ipv4', 'anon-cs-serbia'] },
     { server_name='scaleway-fr', via=['dnscry.pt-anon-paris-ipv4', 'anon-cs-fr'] },
     { server_name='v.dnscrypt.uk-ipv4', via=['dnscry.pt-anon-manchester-ipv4', 'anon-cs-fr'] }
-    { server_name='v.dnscrypt.uk-ipv4', via=['anon-cs-london', 'anon-scaleway'] }
 #    { server_name='example-server-1', via=['anon-example-1', 'anon-example-2'] },
 #    { server_name='example-server-2', via=['sdns://gRIxMzcuNzQuMjIzLjIzNDo0NDM'] }
  ]

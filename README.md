@@ -22,7 +22,7 @@ All the binary files are downloaded from the [official release page](https://git
 
 ## Differences from the main project
 
-- `server_names` = `ams-dnscrypt-nl` [NLD], `d0wn-tz-ns1` [TZA], `dct-nl` [NLD], `dct-ru` [RUS], `dnscrypt.be` [BEL], `dnscrypt.pl` [POL], `dnscrypt.uk-ipv4` [GBR], `dnswarden-uncensor-dc-swiss` [CHE], `meganerd` [NLD], `openinternet` [USA], `plan9dns-fl` [USA], `plan9dns-mx` [MEX], `plan9dns-nj` [USA], `pryv8boi` [DEU], `sby-limotelu` [IDN], `scaleway-ams` [NLD], `scaleway-fr` [FRA], `serbica` [NLD], `techsaviours.org-dnscrypt` [DEU], `v.dnscrypt.uk-ipv4` [GBR] are the resolvers in use.
+- `server_names` = `cs-de` [DE], `cs-milan` [IT], `cs-poland` [PL], `digitalprivacy.diy-dnscrypt-ipv4` [DE], `dnscry.pt-brussels-ipv4` [DE], `dnscry.pt-frankfurt-ipv4` [DE], `dnscry.pt-geneva-ipv4` [CH], `dnscry.pt-munich-ipv4` [DE], `scaleway-ams` [NL], `serbica` [NL], `scaleway-fr` [FR], `v.dnscrypt.uk-ipv4` [UK], are the resolvers in use.
 
 - `doh_servers = false` (disable servers implementing the `DNS-over-HTTPS` protocol)
 
@@ -34,17 +34,21 @@ All the binary files are downloaded from the [official release page](https://git
 
 - `blocked_query_response = 'refused'` (set `refused` response to blocked queries)
 
-- `# log_level = 0` (set the log level of the `dnscrypt-proxy.log` file to very verbose, but keep it disabled by default)
+- `log_level = 2` (enable the log level to the default value = 2)
+
+- `log_files = 'dnscrypt-proxy.log'` (enable the log files with automatic rotation every 7 days)
+
+- `log_files_max_size = 1` (reduced to 1MB to keep just the essential)
 
 - `dnscrypt_ephemeral_keys = true` (create a new, unique key for every single DNS query)
 
-- `bootstrap_resolvers = ['45.11.45.11:53']` (use [DNS.SB](https://dns.sb/) instead [CloudFlare](https://archive.today/tS1Ln))
+- `bootstrap_resolvers = ['45.11.45.11:53']` (use [DNS.SB](https://dns.sb/) instead Quad9 and Google)
 
-- `netprobe_address = '45.11.45.11:53'` (use [DNS.SB](https://dns.sb/) instead [CloudFlare](https://archive.today/tS1Ln))
+- `netprobe_address = '45.11.45.11:53'` (use [DNS.SB](https://dns.sb/) instead Quad9 and Google)
 
 - `block_ipv6 = true` (immediately respond to IPv6-related queries with an empty response)
 
-- `blocked-names.txt`, `blocked-ips.txt`, `allowed-names.txt` and `allowed-ips.txt` files enabled. (to know more specifics about this, please refer to the [Filters (optional)](https://github.com/d3cim/dnscrypt-proxy-android#filters-optional) section below)
+- `blocked-names.txt`, `blocked-ips.txt`, `allowed-names.txt` and `allowed-ips.txt` files enabled. (to know more specifics about this, please refer to the [Filters (optional)](https://github.com/erredi/dnscrypt-proxy-android#filters-optional) section below)
 
 - `anonymized_dns` feature enabled. (`routes` are indirect ways to reach DNSCrypt servers, each resolver has 2 relays assigned)
 
@@ -54,7 +58,7 @@ All the binary files are downloaded from the [official release page](https://git
 
 ## Installation
 
-**1.** Download the latest `dnscrypt-proxy-android-*.zip` file from the [Releases](https://github.com/d3cim/dnscrypt-proxy-android/releases/latest) page and flash it with [Magisk](https://github.com/topjohnwu/Magisk):
+**1.** Download the latest `dnscrypt-proxy-android-*.zip` file from the [Releases](https://github.com/erredi/dnscrypt-proxy-android/releases/latest) page and flash it with [Magisk](https://github.com/topjohnwu/Magisk):
 
 ```
 Magisk > Modules > Install from storage > dnscrypt-proxy-android-*.zip
@@ -74,16 +78,16 @@ For a more detailed configuration you can refer to the [official documentation](
 
 Filters are a powerful set of built-in features, that let you control exactly what domain names and IP addresses your device are allowed to connect to. This can be used to block ads, trackers, malware, or anything you don't want your device to load.
 
-This [module](https://github.com/d3cim/dnscrypt-proxy-android) comes with the [filtering feature](https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Filters) enabled by default, that's why you can see files designed for this operation inside the internal folder. Out of the box these files are empty and are used only to ensure the correct start of `dnscrypt-proxy` service.\
-To know more about it you can consult the [official documentation](https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Filters), or in a simpler way through my [block repository](https://github.com/d3cim/block).
+This [module](https://github.com/erredi/dnscrypt-proxy-android) comes with the [filtering feature](https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Filters) enabled by default, that's why you can see files designed for this operation inside the internal folder. Out of the box these files are empty and are used only to ensure the correct start of `dnscrypt-proxy` service.\
+To know more about it you can consult the [official documentation](https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Filters), or in a simpler way through my [block repository](https://github.com/erredi/block).
 
-I'm also providing the `allowed-names.txt` and `blocked-names.txt` files regularly updated at [dnscrypt-proxy-filters | CHANNEL](https://t.me/dnscrypt_proxy_filters). The [sources](https://github.com/d3cim/block#sources) used for this merge are among the hardest on the web.
+I'm also providing the `allowed-names.txt` and `blocked-names.txt` files regularly updated at [dnscrypt-proxy-filters | CHANNEL](https://t.me/dnscrypt_proxy_filters). The [sources](https://github.com/erredi/block#sources) used for this merge are among the hardest on the web.
 
-You can contribute to this blocklist at anytime, opening a [New Issue](https://github.com/d3cim/dnscrypt-proxy-android/issues) here or simply reporting the issue at [dnscrypt-proxy-filters | CHAT](https://t.me/qd_invitations) on [Telegram](https://telegram.org/).
+You can contribute to this blocklist at anytime, opening a [New Issue](https://github.com/erredi/dnscrypt-proxy-android/issues) here or simply reporting the issue at [dnscrypt-proxy-filters | CHAT](https://t.me/qd_invitations) on [Telegram](https://telegram.org/).
 
 ## Changelog
 
-- See [CHANGELOG](https://github.com/d3cim/dnscrypt-proxy-android/blob/master/CHANGELOG.md).
+- See [CHANGELOG](https://github.com/erredi/dnscrypt-proxy-android/blob/master/CHANGELOG.md).
 
 ## Version numbers
 

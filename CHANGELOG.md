@@ -1,15 +1,25 @@
 # Changelog
 
-## unreleased
-### Changed
-- `dct-nl1` name resolver to `dct-nl`.
-- `dct-ru1` name resolver to `dct-ru`.
-- Optimized relays.
+## 2.1.16
+### Upstream
 
-### Removed
-- `dct-at1` resolver (ceased).
-- `dnscrypt.ca-1` resolver (ceased).
-- `dnscrypt.ca-2` resolver (ceased).
+ -  Dashboard HTML pages are no longer cached, preventing stale content from being served after upgrades.
+ -  The IP allow/block plugins now support CIDR ranges in addition to single addresses and prefix matching.
+ -  Forwarding rules now support `$RESOLVCONF:<file>` to pick up upstream resolvers from a resolv.conf-style file, complementing the existing `$DHCP` syntax.
+ -  Recursive cloaking rules are now rejected at load time instead of being detected only when a matching query arrives.
+ -  Servers that hit a transient high RTT could previously stay penalized forever and never come back into rotation; their RTT estimate now decays so they can recover.
+ -  Servers are no longer penalized for slow responses when the response is actually being served from the stale cache.
+ -  HTTP/3 probing now consults a negative cache before retrying, avoiding repeated probes against servers known not to support it.
+ -  The HTTP transport now handles `Alt-Svc: clear` properly and reuses HTTP connections more aggressively.
+ -  The cache TTL is now an explicit, configurable parameter rather than being derived implicitly.
+ -  Log entries now include the relay name when a query was sent through an anonymized DNS or ODoH relay.
+ -  A new `tls_prefer_rsa` option has been added to prefer RSA cipher suites during the TLS handshake, useful on systems without hardware AES.
+ -  The `tls_cipher_suite` option is now a no-op. Modern TLS stacks no longer expose cipher suite selection in a meaningful way, and the option had become misleading.
+ -  The `-resolve` command now reports incomplete DNSSEC support instead of silently treating partial signatures as a success.
+ -  ODoH: the 401 key-refresh path has been hardened against panics, races and bad server state, refreshes are now coalesced, and the blocking sleep on refresh has been removed.
+ -  A log size of 0 no longer means "unlimited"; it now correctly disables rotation by size.
+ -  `jsdelivr` is now offered as an alternative source URL for resolver lists, providing more redundancy when the primary mirrors are unreachable.
+ -  The miekg/dns library has been updated to the v2 series.
 
 ## 2.1.15
 ### Upstream
@@ -84,6 +94,17 @@ This is a massive release with significant improvements.
  - Resolver IP addresses can now be refreshed more frequently. Additionally, jitter has been introduced to prevent all resolvers from being refreshed simultaneously. Further changes have been implemented to mitigate issues arising from multiple concurrent attempts to resolve a resolver's IP address.
  - An empty value for "tls_cipher_suite" is now equivalent to leaving the property undefined. Previously, it disabled all TLS cipher suites, which had little practical justification.
  - In forwarding rules, an optional *. prefix is now accepted.
+
+## unreleased
+### Changed
+ - `dct-nl1` name resolver to `dct-nl`.
+ - `dct-ru1` name resolver to `dct-ru`.
+ - Optimized relays.
+
+### Removed
+ - `dct-at1` resolver (ceased).
+ - `dnscrypt.ca-1` resolver (ceased).
+ - `dnscrypt.ca-2` resolver (ceased).
 
 ## 2.1.5
 ### Upstream

@@ -65,7 +65,7 @@ ipv4_servers = true
 # Use servers reachable over IPv6 -- Do not enable if you don't have IPv6 connectivity
 ipv6_servers = false
 
-# Use servers implementing the DNSCrypt protocol
+# Use servers implementing the DNSCrypt and PQDNSCrypt protocols
 dnscrypt_servers = true
 
 # Use servers implementing the DNS-over-HTTPS protocol
@@ -275,11 +275,19 @@ cert_refresh_delay = 240
 # cert_ignore_timestamp = false
 
 
-## DNSCrypt: Create a new, unique key for every single DNS query
+## DNSCrypt: Create a new, unique X25519 key pair for every single DNS query
 ## This may improve privacy but can also have a significant impact on CPU usage
 ## Only enable if you don't have a lot of network load
 
 dnscrypt_ephemeral_keys = true
+
+
+## PQDNSCrypt (DNSCrypt 2026): use post-quantum cryptography when supported
+## by the server.
+## This protects the confidentiality of your queries against future quantum
+## computers ("harvest now, decrypt later").
+
+# pqdnscrypt = true
 
 
 ## DoH: Disable TLS session tickets - increases privacy but also latency
@@ -295,13 +303,13 @@ dnscrypt_ephemeral_keys = true
 
 # tls_prefer_rsa = false
 
+
 ## Log TLS key material to a file, for debugging purposes only.
 ## This file will contain the TLS master key, which can be used to decrypt
 ## all TLS traffic to/from DoH servers.
 ## Never ever enable except for debugging purposes with a tool such as mitmproxy.
 
 # tls_key_log_file = '/tmp/keylog.txt'
-
 
 
 ###############################################################################
@@ -510,6 +518,7 @@ cache_neg_max_ttl = 600
 ###############################################################################
 #                            Local DoH server                                  #
 ###############################################################################
+
 [local_doh]
 
 ## dnscrypt-proxy can act as a local DoH server. By doing so, web browsers
@@ -530,9 +539,8 @@ cache_neg_max_ttl = 600
 
 
 ## Certificate file and key - Note that the certificate has to be trusted.
-## Can be generated using the following commands:
-## openssl genpkey -genparam -algorithm ec -pkeyopt ec_paramgen_curve:P-256 -out ECPARAM.pem
-## openssl req -x509 -nodes -newkey ec:ECPARAM.pem -subj "/C=XZ/L=own PC/O=localhost/CN=localhost/" -days 5000 -sha256 -keyout localhost.pem -out localhost.pem
+## Can be generated using the following command:
+## openssl req -x509 -nodes -newkey rsa:2048 -days 5000 -sha256 -keyout localhost.pem -out localhost.pem
 ## See the documentation (wiki) for more information.
 
 # cert_file = 'localhost.pem'
@@ -866,13 +874,13 @@ fragments_blocked = [
 #                Certificate-based client authentication for DoH               #
 ###############################################################################
 
+[doh_client_x509_auth]
+
 ## Use an X509 certificate to authenticate yourself when connecting to DoH servers.
 ## This is only useful if you are operating your own, private DoH server(s).
 ## 'creds' maps servers to certificates, and supports multiple entries.
 ## If you are not using the standard root CA, an optional "root_ca"
 ## property set to the path to a root CRT file can be added to a server entry.
-
-[doh_client_x509_auth]
 
 # creds = [
 #    { server_name='*', client_cert='client.crt', client_key='client.key' }
@@ -944,7 +952,6 @@ skip_incompatible = true
 direct_cert_fallback = false
 
 
-
 ###############################################################################
 #                                 DNS64                                        #
 ###############################################################################
@@ -977,6 +984,7 @@ direct_cert_fallback = false
 ## IMPORTANT: Default resolvers listed below support Well-Known Prefix 64:ff9b::/96 only.
 
 # resolver = ['[2606:4700:4700::64]:53', '[2001:4860:4860::64]:53']
+
 
 ###############################################################################
 #                           IP Encryption                                      #
@@ -1073,4 +1081,3 @@ privacy_level = 1
 
 # [static.myserver]
 #   stamp = 'sdns://AQcAAAAAAAAAAAAQMi5kbnNjcnlwdC1jZXJ0Lg'
-

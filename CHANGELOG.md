@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.1.18
+### Upstream
+
+ -  Forwarding rules now support the $PROXY: prefix to send selected plain DNS upstreams over DNS-over-TCP through the proxy configured by the main proxy setting.
+ -  PQDNSCrypt certificate retrieval is more reliable on paths where fragmented UDP packets are blocked, including when certificates are fetched through Anonymized DNSCrypt relays.
+ -  Resolver latency measurements no longer include setup or certificate-transfer time, so startup benchmarks and server selection better reflect actual query response time.
+
 ## 2.1.17
 ### Upstream
 

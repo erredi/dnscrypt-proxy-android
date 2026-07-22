@@ -27,8 +27,7 @@
 ##
 ## Remove the leading # first to enable this; lines starting with # are ignored.
 
-server_names = ['cs-de', 'cs-milan', 'cs-poland', 'digitalprivacy.diy-dnscrypt-ipv4', 'dnscry.pt-brussels-ipv4', 'dnscry.pt-frankfurt-ipv4', 'dnscry.pt-geneva-ipv4', 'dnscry.pt-munich-ipv4', 'scaleway-ams', 'serbica', 'scaleway-fr', 'v.dnscrypt.uk-ipv4']
-
+server_names = ['dnscry.pt-geneva-ipv4', 'dnscry.pt-zurich-ipv4', 'dnscry.pt-munich-ipv4', 'dnscry.pt-prague-ipv4', 'scaleway-ams', 'scaleway-fr', 'nwps.fi', 'searx-se-ipv4', 'dnscry.pt-ikeja-ipv4', 'dnscry.pt-capetown02-ipv4', 'dnscry.pt-portedwards-ipv4', 'dnscry.pt-hongkong-ipv4', 'dnscry.pt-singapore02-ipv4', 'dnscry.pt-jakarta-ipv4', 'dnscry.pt-bangkok-ipv4', 'dnscry.pt-newyork-ipv4', 'dnscry.pt-halifax-ipv4', 'dnscry.pt-philadelphia-ipv4', 'dnscry.pt-ashburn-ipv4', 'dnscry.pt-allentown-ipv4']
 
 ## List of local addresses and ports to listen to. Can be IPv4 and/or IPv6.
 ## Example with both IPv4 and IPv6:
@@ -920,23 +919,28 @@ fragments_blocked = [
 ## select (relay,server) pairs that work well and fit your own criteria (close by or
 ## in different countries, operated by different entities, on distinct ISPs...)
 
- routes = [
-    { server_name='cs-de', via=['dnscry.pt-anon-frankfurt-ipv4', 'anon-cs-ch'] },
-    { server_name='cs-milan', via=['dnscry.pt-anon-milan-ipv4', 'anon-cs-ch'] },
-    { server_name='cs-poland', via=['dnscry.pt-anon-warsaw02-ipv4', 'anon-cs-czech'] },
-    { server_name='digitalprivacy.diy-dnscrypt-ipv4', via=['dnscry.pt-anon-luxembourg-ipv4', 'anon-cs-fr'] },
-    { server_name='dnscry.pt-brussels-ipv4', via=['dnscry.pt-anon-frankfurt-ipv4', 'anon-cs-fr'] },
-    { server_name='dnscry.pt-frankfurt-ipv4', via=['dnscry.pt-anon-brussels-ipv4', 'anon-cs-de'] },
-    { server_name='dnscry.pt-geneva-ipv4', via=['dnscry.pt-anon-munich-ipv4', 'anon-cs-ch'] },
-    { server_name='dnscry.pt-munich-ipv4', via=['dnscry.pt-anon-geneva-ipv4', 'anon-cs-de'] },
-    { server_name='scaleway-ams', via=['dnscry.pt-anon-amsterdam02-ipv4', 'anon-cs-nl'] },
-    { server_name='serbica', via=['dnscry.pt-anon-budapest-ipv4', 'anon-cs-serbia'] },
-    { server_name='scaleway-fr', via=['dnscry.pt-anon-paris-ipv4', 'anon-cs-fr'] },
-    { server_name='v.dnscrypt.uk-ipv4', via=['dnscry.pt-anon-manchester-ipv4', 'anon-cs-fr'] }
-#    { server_name='example-server-1', via=['anon-example-1', 'anon-example-2'] },
-#    { server_name='example-server-2', via=['sdns://gRIxMzcuNzQuMjIzLjIzNDo0NDM'] }
- ]
-
+routes = [
+    { server_name='dnscry.pt-geneva-ipv4', via=['anon-cs-de', 'dnscry.pt-anon-amsterdam-ipv4'] },
+    { server_name='dnscry.pt-zurich-ipv4', via=['anon-cs-austria', 'dnscry.pt-anon-paris-ipv4'] },
+    { server_name='dnscry.pt-munich-ipv4', via=['anon-cs-belgium', 'dnscry.pt-anon-stockholm-ipv4'] },
+    { server_name='dnscry.pt-prague-ipv4', via=['anon-cs-serbia', 'dnscry.pt-anon-tirana-ipv4'] },
+    { server_name='scaleway-ams', via=['anon-cs-norway', 'dnscry.pt-anon-milan-ipv4'] },
+    { server_name='scaleway-fr', via=['anon-cs-milan', 'dnscry.pt-anon-madrid-ipv4'] },
+    { server_name='nwps.fi', via=['anon-cs-poland', 'dnscry.pt-anon-frankfurt-ipv4'] },
+    { server_name='searx-se-ipv4', via=['anon-cs-london', 'dnscry.pt-anon-prague-ipv4'] },
+    { server_name='dnscry.pt-ikeja-ipv4', via=['anon-cipherdns-ct1-za', 'anon-cipherdns-jb1-za'] },
+    { server_name='dnscry.pt-capetown02-ipv4', via=['dnscry.pt-anon-portedwards-ipv4', 'dnscry.pt-anon-capetown-ipv4'] },
+    { server_name='dnscry.pt-portedwards-ipv4', via=['anon-cipherdns-jb1-za', 'dnscry.pt-anon-ikeja-ipv4'] },
+    { server_name='dnscry.pt-hongkong-ipv4', via=['anon-cs-singapore', 'dnscry.pt-anon-baku-ipv4'] },
+    { server_name='dnscry.pt-singapore02-ipv4', via=['anon-cs-tokyo', 'dnscry.pt-anon-auckland-ipv4'] },
+    { server_name='dnscry.pt-jakarta-ipv4', via=['anon-tiarap', 'dnscry.pt-anon-adelaide-ipv4'] },
+    { server_name='dnscry.pt-bangkok-ipv4', via=['dnscry.pt-anon-bengaluru-ipv4', 'anon-saldns01-conoha-ipv4'] },
+    { server_name='dnscry.pt-newyork-ipv4', via=['anon-cs-dc', 'dnscry.pt-anon-allendale-ipv4'] },
+    { server_name='dnscry.pt-halifax-ipv4', via=['anon-cs-fl', 'dnscry.pt-anon-ashburn-ipv4'] },
+    { server_name='dnscry.pt-philadelphia-ipv4', via=['anon-cs-ga', 'dnscry.pt-anon-atlanta-ipv4'] },
+    { server_name='dnscry.pt-ashburn-ipv4', via=['anon-cs-il', 'dnscry.pt-anon-calgary-ipv4'] },
+    { server_name='dnscry.pt-allentown-ipv4', via=['anon-cs-montreal', 'dnscry.pt-anon-chicago-ipv4'] }
+]
 
 ## Skip resolvers incompatible with anonymization instead of using them directly
 

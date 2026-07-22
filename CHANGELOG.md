@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+### Changed
+
+ -  Updated server list with compatibilty to the new protocol PQDnscrypt
+ -  Added new feature dnscrypt-restart that can restart dnscrypt and all the config without the needs to restart the phone
+ 
 ## 2.1.18
 ### Upstream
 

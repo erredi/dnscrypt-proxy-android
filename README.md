@@ -9,6 +9,10 @@ A flexible DNS proxy, with support for modern encrypted DNS protocols such as [D
 
 - For all features please refer to the [official page](https://github.com/DNSCrypt/dnscrypt-proxy#features).
 
+## Custom features
+
+- Add dnscrypt-restart to help restarting dnscrypt-proxy without rebooting the phone
+
 ## Pre-built binaries
 
 Up-to-date, pre-built binaries are available for:
@@ -22,7 +26,7 @@ All the binary files are downloaded from the [official release page](https://git
 
 ## Differences from the main project
 
-- `server_names` = `cs-de` [DE], `cs-milan` [IT], `cs-poland` [PL], `digitalprivacy.diy-dnscrypt-ipv4` [DE], `dnscry.pt-brussels-ipv4` [DE], `dnscry.pt-frankfurt-ipv4` [DE], `dnscry.pt-geneva-ipv4` [CH], `dnscry.pt-munich-ipv4` [DE], `scaleway-ams` [NL], `serbica` [NL], `scaleway-fr` [FR], `v.dnscrypt.uk-ipv4` [UK], are the resolvers in use.
+- `server_names` = `dnscry.pt-geneva-ipv4` [CH], `dnscry.pt-zurich-ipv4` [CH], `dnscry.pt-munich-ipv4` [DE], `dnscry.pt-prague-ipv4` [CZ], `scaleway-ams` [NL], `scaleway-fr` [FR], `nwps.fi` [FI], `searx-se-ipv4` [SE], `dnscry.pt-ikeja-ipv4` [NG], `dnscry.pt-capetown02-ipv4` [ZA], `dnscry.pt-portedwards-ipv4` [ZA], `dnscry.pt-hongkong-ipv4` [HK], `dnscry.pt-singapore02-ipv4` [SG], `dnscry.pt-jakarta-ipv4` [ID], `dnscry.pt-bangkok-ipv4` [TH], `dnscry.pt-newyork-ipv4` [US], `dnscry.pt-halifax-ipv4` [CA], `dnscry.pt-philadelphia-ipv4` [US], `dnscry.pt-ashburn-ipv4` [US], `dnscry.pt-allentown-ipv4` [US]
 
 - `doh_servers = false` (disable servers implementing the `DNS-over-HTTPS` protocol)
 

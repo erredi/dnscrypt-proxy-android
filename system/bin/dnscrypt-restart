@@ -1,0 +1,10 @@
+#!/system/bin/sh
+
+if pidof dnscrypt-proxy >/dev/null; then
+    echo "Restarting dnscrypt-proxy..."
+    killall dnscrypt-proxy
+else
+    echo "dnscrypt-proxy is not running."
+fi
+
+exit 0

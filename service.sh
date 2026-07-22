@@ -6,6 +6,10 @@
 # if Magisk change its mount point in the future
 MODDIR=${0%/*}
 
-	while ! [ `pgrep -x dnscrypt-proxy` ] ; do
-		$MODDIR/system/bin/dnscrypt-proxy -config /storage/emulated/0/dnscrypt-proxy/dnscrypt-proxy.toml && sleep 15;
+	while true
+	do
+    		if ! pidof dnscrypt-proxy >/dev/null; then
+	        	$MODDIR/system/bin/dnscrypt-proxy -config /storage/emulated/0/dnscrypt-proxy/dnscrypt-proxy.toml &
+    		fi
+    		sleep 1
 	done

@@ -11,5 +11,6 @@ rm -rf /mnt/runtime/write/emulated/0/dnscrypt-proxy
 rm -rf /sdcard/dnscrypt-proxy
 rm -rf /storage/emulated/0/dnscrypt-proxy
 rm -rf /storage/self/primary/dnscrypt-proxy
+rm -rf /system/bin/dnscrypt-restart
 
 )&

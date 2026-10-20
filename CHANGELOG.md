@@ -6,6 +6,15 @@
  -  Updated server list with compatibilty to the new protocol PQDnscrypt
  -  Added new feature dnscrypt-restart that can restart dnscrypt and all the config without the needs to restart the phone
  
+## 2.1.19
+### Upstream
+
+ -  Resumed PQDNSCrypt queries now use regular UDP padding, protecting their size and response budget. Oversized tickets are rejected, and oversized queries fall back to TCP.
+ -  Network changes are detected more reliably, ensuring PQDNSCrypt key material rotates when connections change.
+ -  Forwarded queries to local or DHCP resolvers now use UDP by default. Bootstrap resolvers still use TCP when force_tcp is enabled.
+ -  Suffix rules now match only at DNS label boundaries. IP allow/block rules now correctly handle IPv4-mapped IPv6 addresses.
+ -  The monitoring dashboard displays the running version. Its endpoints no longer allow cross-origin browser access.
+
 ## 2.1.18
 ### Upstream
 

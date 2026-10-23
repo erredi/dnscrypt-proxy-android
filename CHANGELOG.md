@@ -6,6 +6,16 @@
  -  Updated server list with compatibilty to the new protocol PQDnscrypt
  -  Added new feature dnscrypt-restart that can restart dnscrypt and all the config without the needs to restart the phone
  
+## 2.1.20
+### Upstream
+
+ -  Name lists now support regex: rules for matching domain names with regular expressions.
+ -  Added doh_check_cert_hashes_on_connect to optionally check DoH certificate hashes from DNS stamps on every new connection, rather than only during probes.
+ -  Fixed PQDNSCrypt TCP padding and padding delimiter handling.
+ -  Network change detection now ignores non-global addresses.
+ -  HTTP/3 DNS responses are now limited to 4 KB.
+ -  Network probes now support multiple comma-separated addresses.
+
 ## 2.1.19
 ### Upstream
 

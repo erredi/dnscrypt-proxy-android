@@ -5,6 +5,17 @@
 
  -  Updated server list with compatibilty to the new protocol PQDnscrypt
  -  Added new feature dnscrypt-restart that can restart dnscrypt and all the config without the needs to restart the phone
+
+## 2.1.21
+### Upstream
+
+ -  Wildcard UDP listeners now reply from the address that received the query on platforms that support UDP packet information.
+ -  Fixed IPv6 relay selection for wildcard Anonymized DNSCrypt routes.
+ -  Cloaking now creates PTR records for all IPv6 addresses of a cloaked name.
+ -  The monitoring dashboard accepts ws and wss in X-Forwarded-Proto when served behind a reverse proxy.
+ -  Forwarded replies with a mismatched DNS question are rejected instead of falling back to regular resolvers.
+ -  Changed the default network probe and fallback bootstrap address to 8.8.8.8:53. The example bootstrap list now uses Google and Cloudflare.
+ -  Added the NetAPI compromised domains list to the blocklist generator.
  
 ## 2.1.20
 ### Upstream

@@ -1,6 +1,6 @@
 {
-    "version": "2.1.20",
-    "versionCode": 212000,
-    "zipUrl": "https://github.com/erredi/dnscrypt-proxy-android/releases/download/v2.1.20/dnscrypt-proxy-android-v2.1.20.zip",
-    "changelog": "https://raw.githubusercontent.com/erredi/dnscrypt-proxy-android/v2.1.20/CHANGELOG.md"
+    "version": "2.1.21",
+    "versionCode": 212100,
+    "zipUrl": "https://github.com/erredi/dnscrypt-proxy-android/releases/download/v2.1.21/dnscrypt-proxy-android-v2.1.21.zip",
+    "changelog": "https://raw.githubusercontent.com/erredi/dnscrypt-proxy-android/v2.1.21/CHANGELOG.md"
 }
